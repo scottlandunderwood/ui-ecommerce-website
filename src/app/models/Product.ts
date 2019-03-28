@@ -1,9 +1,9 @@
 export class Product {
-  private id: number;
-  private model: string;
-  private make: string;
-  private year: number;
-  private vin: string;
+  public id: number;
+  public model: string;
+  public make: string;
+  public year: number;
+  public vin: string;
 
   constructor(id: number, model: string, make: string, year: number, vin: string) {
     this.id = id;

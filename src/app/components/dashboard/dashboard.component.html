@@ -1,1 +1,74 @@
-<app-product-table></app-product-table>
+<!--<app-product-table></app-product-table>-->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+  });
+</script>
+<div class="container-fluid default-background">
+  <div class="row">
+    <div class="col"></div>
+
+    <div class="col-6 dashboard-outline dashboard" style="background: white;">
+      <form class="dashboard-form">
+        <div class="form-group mb-4">
+          <input type="text" class="form-control text-left" placeholder="Search..">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group dropdown col">
+            <button class="btn btn-outline-primary dropdown-toggle text-right" type="button" id="makeDropDownMenuButton" data-toggle="dropdown">
+              Make
+            </button>
+            <form class="dropdown-menu p-4 scrollable-menu">
+              <div class="form-group">
+                <div *ngFor="let checkbox of makeCheckboxes">
+                  <label><input type="checkbox" value="{{checkbox.make}}" [checked]="checkbox.checked" (change)="onMakeSelection('make', checkbox.make, $event)"></label> {{checkbox.make}}
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="form-group dropdown col">
+            <button class="btn btn-outline-primary dropdown-toggle text-right" type="button" id="modelDropDownMenuButton" data-toggle="dropdown">
+              Model
+            </button>
+            <form class="dropdown-menu p-4 scrollable-menu">
+              <div class="form-group">
+                <div *ngFor="let checkbox of modelCheckBoxes">
+                  <label><input type="checkbox" value="{{checkbox.model}}" [checked]="checkbox.checked" (change)="onMakeSelection('model', checkbox.model, $event)"></label> {{checkbox.model}}
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" placeholder="Year">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="horizontal text-muted">
+              <div class="text-overflow-ellipsis">
+                <span *ngFor="let selected of selectedMakes">
+                  {{selected}},&nbsp;
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="horizontal text-muted">
+              <div class="text-overflow-ellipsis">
+                <span *ngFor="let selected of selectedModels">
+                  {{selected}},&nbsp;
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col"></div>
+  </div>
+</div>

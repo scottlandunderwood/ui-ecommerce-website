@@ -24,4 +24,24 @@ export class ProductRetrieverService {
       this.products.push(product);
     }
   }
+
+  getMakeList(): string[] {
+    const makes: string[] = [];
+    for (const product of this.products) {
+      if (!makes.includes(product.make)) {
+        makes.push(product.make);
+      }
+    }
+    return makes;
+  }
+
+  getModelList(): string[] {
+    const models: string[] = [];
+    for (const product of this.products) {
+      if (!models.includes(product.model)) {
+        models.push(product.model);
+      }
+    }
+    return models;
+  }
 }
