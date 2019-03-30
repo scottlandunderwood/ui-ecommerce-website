@@ -9,12 +9,14 @@ import { ProductTableComponent } from './components/product-table/product-table.
 import { MatCardModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { PurchasePageComponent } from './components/purchase-page/purchase-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ProductTableComponent
+    ProductTableComponent,
+    PurchasePageComponent
   ],
   imports: [
     BrowserModule,
