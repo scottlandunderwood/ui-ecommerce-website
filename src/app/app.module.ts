@@ -10,6 +10,8 @@ import { MatCardModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { PurchasePageComponent } from './components/purchase-page/purchase-page.component';
+import {RouterModule, Routes} from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -23,9 +25,18 @@ import { PurchasePageComponent } from './components/purchase-page/purchase-page.
     AppRoutingModule,
     MatFormFieldModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([{
+      path: 'purchase',
+      component: PurchasePageComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+const appRoutes: Routes = [
+  { path: 'purchase', component: PurchasePageComponent}
+];

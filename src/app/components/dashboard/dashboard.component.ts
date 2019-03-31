@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductRetrieverService} from '../../services/product_retriever/product-retriever.service';
 import {Product} from '../../models/Product';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,7 @@ export class DashboardComponent implements OnInit {
   selectedMakes: string[];
   selectedModels: string[];
 
-  constructor(productService: ProductRetrieverService) {
+  constructor(productService: ProductRetrieverService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.products = productService.getProducts();
     this.makes = productService.getMakeList();
     this.models = productService.getModelList();
@@ -30,6 +31,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSearchButtonClick(): void {
+    this.router.navigate(['/purchase']);
+  }
   initializeCheckboxes() {
     for (const make of this.makes) {
       this.makeCheckboxes.push({'make': make, 'checked': false});
