@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { PurchasePageComponent } from './components/purchase-page/purchase-page.component';
 import {RouterModule, Routes} from '@angular/router';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {RouterModule, Routes} from '@angular/router';
     AppComponent,
     DashboardComponent,
     ProductTableComponent,
-    PurchasePageComponent
+    PurchasePageComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,9 @@ import {RouterModule, Routes} from '@angular/router';
     RouterModule.forRoot([{
       path: 'purchase',
       component: PurchasePageComponent
-      }
+      },
+      {path: 'payment',
+       component: PaymentComponent}
     ])
   ],
   providers: [],
@@ -38,5 +42,6 @@ import {RouterModule, Routes} from '@angular/router';
 export class AppModule { }
 
 const appRoutes: Routes = [
-  { path: 'purchase', component: PurchasePageComponent}
+  { path: 'purchase', component: PurchasePageComponent},
+  {path: 'payment', component: PaymentComponent}
 ];
